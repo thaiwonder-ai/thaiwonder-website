@@ -571,3 +571,16 @@ body {
 .logo-nav .logo {
     display: inline-block;
 }
+
+/* Logo - show/hide based on background */
+.logo-light { display: none; }
+.logo-dark { display: inline; }
+
+/* On dark hero, show light logo */
+.hero .logo-light { display: inline; }
+.hero .logo-dark { display: none; }
+
+/* On light background, show dark logo */
+.logo-nav { background: #fff; }
+.logo-nav .logo-light { display: none; }
+.logo-nav .logo-dark { display: inline; }
