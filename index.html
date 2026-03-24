@@ -11,13 +11,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Logo / Nav -->
-    <nav class="logo-nav">
-        <a href="index.html" class="logo">
-            <img src="logo-light.svg" alt="旅遊筆記" class="logo-light">
-            <img src="logo-dark.svg" alt="旅遊筆記" class="logo-dark">
+    <!-- 網站導航 Header -->
+    <header class="site-header" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 15px 0; position: sticky; top: 0; z-index: 999;">
+      <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center;">
+        <a href="index.html" style="color: #fff; text-decoration: none; font-size: 22px; font-weight: bold; display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 24px;">📝</span> 旅遊筆記
         </a>
-    </nav>
+        <nav style="display: flex; gap: 25px;">
+          <a href="https://thaiwonder.tw" style="color: #fff; text-decoration: none; font-weight: 500;">目的地</a>
+          <a href="https://thaiwonder.tw" style="color: #fff; text-decoration: none; font-weight: 500;">城市</a>
+          <a href="https://thaiwonder.tw" style="color: #fff; text-decoration: none; font-weight: 500;">海島</a>
+          <a href="https://thaiwonder.tw" style="color: #fff; text-decoration: none; font-weight: 500;">古蹟</a>
+          <a href="https://thaiwonder.tw" style="color: #fff; text-decoration: none; font-weight: 500;">關於</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Logo / Nav -->
+    <nav class="logo-nav" style="display: none;">
 
     <!-- Hero Section -->
     <header class="hero">
