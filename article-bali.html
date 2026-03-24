@@ -11,10 +11,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="site-header" style="background:#1a1a2e;padding:15px;position:sticky;top:0;z-index:999;">
-      <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;">
-        <a href="index.html" style="color:#fff;text-decoration:none;font-size:20px;font-weight:bold;">📝 旅遊筆記</a>
-        <nav><a href="article-tokyo.html" style="color:#fff;margin-left:20px;text-decoration:none;">日本</a><a href="article-bangkok.html" style="color:#fff;margin-left:20px;text-decoration:none;">泰國</a><a href="article-bali.html" style="color:#fff;margin-left:20px;text-decoration:none;">印尼</a><a href="article-chiangmai.html" style="color:#fff;margin-left:20px;text-decoration:none;">越南</a></nav>
+    <header class="site-header" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 15px 0; position: sticky; top: 0; z-index: 999;">
+      <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center;">
+        <a href="index.html" style="color: #fff; text-decoration: none; font-size: 22px; font-weight: bold; display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 24px;">📝</span> 旅遊筆記
+        </a>
+        <nav style="display: flex; gap: 25px;">
+          <a href="category-japan.html" style="color: #fff; text-decoration: none; font-weight: 500;">目的地</a>
+          <a href="category-cities.html" style="color: #fff; text-decoration: none; font-weight: 500;">城市</a>
+          <a href="category-islands.html" style="color: #fff; text-decoration: none; font-weight: 500;">海島</a>
+          <a href="category-ancient.html" style="color: #fff; text-decoration: none; font-weight: 500;">古蹟</a>
+          <a href="#about" style="color: #fff; text-decoration: none; font-weight: 500;">關於</a>
+        </nav>
       </div>
     </header>
     <!-- Article Header -->
@@ -97,6 +105,39 @@
             <div class="affiliate-box" style="background:#f8f9fa;padding:20px;border-radius:8px;margin:30px 0;border-left:4px solid #00a650;">
                 <p style="margin:0 0 10px 0;font-size:14px;color:#666;">🏨 住宿優惠</p>
                 <a href="https://www.klook.com/zh-TW/hotels/bali/" target="_blank" style="color:#00a650;text-decoration:none;">👉 Klook 峇厘島住宿</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 相關文章 -->
+    <section class="related-articles" style="background: #f8f9fa; padding: 40px 0;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 24px;">📚 相關文章</h2>
+            <div class="articles-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                <article class="article-card" style="background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <div class="article-image" style="height: 180px; background-image: url('https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=800&q=80'); background-size: cover; background-position: center;"></div>
+                    <div class="article-content" style="padding: 15px;">
+                        <span class="article-tag" style="color: #666; font-size: 12px;">泰國</span>
+                        <h3 style="margin: 10px 0; font-size: 16px;">曼谷：天使之城的多元魅力</h3>
+                        <a href="article-bangkok.html" class="read-more" style="color: #2563eb; text-decoration: none; font-size: 14px;">閱讀更多 →</a>
+                    </div>
+                </article>
+                <article class="article-card" style="background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <div class="article-image" style="height: 180px; background-image: url('https://images.unsplash.com/photo-1504214208698-ea1916a2195a?w=800&q=80'); background-size: cover; background-position: center;"></div>
+                    <div class="article-content" style="padding: 15px;">
+                        <span class="article-tag" style="color: #666; font-size: 12px;">泰國</span>
+                        <h3 style="margin: 10px 0; font-size: 16px;">清邁：泰北玫瑰的慢生活哲學</h3>
+                        <a href="article-chiangmai.html" class="read-more" style="color: #2563eb; text-decoration: none; font-size: 14px;">閱讀更多 →</a>
+                    </div>
+                </article>
+                <article class="article-card" style="background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <div class="article-image" style="height: 180px; background-image: url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80'); background-size: cover; background-position: center;"></div>
+                    <div class="article-content" style="padding: 15px;">
+                        <span class="article-tag" style="color: #666; font-size: 12px;">日本</span>
+                        <h3 style="margin: 10px 0; font-size: 16px;">東京：現代與傳統的完美融合</h3>
+                        <a href="article-tokyo.html" class="read-more" style="color: #2563eb; text-decoration: none; font-size: 14px;">閱讀更多 →</a>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
