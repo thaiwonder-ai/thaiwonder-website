@@ -55,18 +55,44 @@ TIPS_STYLES = [
     "如果要我給點建議，我會說：",
 ]
 
+# 內建飯店資料（CSV 不存在時的後備方案）
+FALLBACK_HOTELS = [
+    {"hotel_name": "Park Hyatt Tokyo", "city": "Tokyo", "country": "Japan", "addressline1": "3-7-1-2 Nishi Shinjuku", "star_rating": "5", "rating_average": "9.2", "number_of_reviews": "2850", "overview": "位於東京繁華的新宿區，享有東京全景的豪華飯店。"},
+    {"hotel_name": "Shangri-La Hotel Paris", "city": "Paris", "country": "France", "addressline1": "16 Avenue d'Iéna", "star_rating": "5", "rating_average": "9.4", "number_of_reviews": "3200", "overview": "巴黎市中心精品飯店，鄰近香榭麗舍大道。"},
+    {"hotel_name": "The St. Regis Bangkok", "city": "Bangkok", "country": "Thailand", "addressline1": "159 Rajadamri Road", "star_rating": "5", "rating_average": "9.1", "number_of_reviews": "2100", "overview": "曼谷五星級飯店，提供極致奢華體驗。"},
+    {"hotel_name": "Four Seasons Hotel Seoul", "city": "Seoul", "country": "South Korea", "addressline1": "97 Bongeunsa-ro", "star_rating": "5", "rating_average": "9.3", "number_of_reviews": "1950", "overview": "首爾江南區五星級飯店，結合韓國傳統與現代設計。"},
+    {"hotel_name": "COMO Uma Ubud", "city": "Bali", "country": "Indonesia", "addressline1": "Jalan Raya Sanggingan", "star_rating": "5", "rating_average": "9.5", "number_of_reviews": "890", "overview": "峇里島烏布精品度假村，置身叢林與梯田間。"},
+    {"hotel_name": "Marina Bay Sands", "city": "Singapore", "country": "Singapore", "addressline1": "10 Bayfront Avenue", "star_rating": "5", "rating_average": "8.9", "number_of_reviews": "8500", "overview": "新加坡地標飯店，三座塔樓與天空泳池聞名世界。"},
+    {"hotel_name": "Park Hyatt Sydney", "city": "Sydney", "country": "Australia", "addressline1": "7 Hickson Road", "star_rating": "5", "rating_average": "9.2", "number_of_reviews": "1650", "overview": "悉尼港畔五星級飯店，緊鄰歌劇院。"},
+    {"hotel_name": "The Savoy London", "city": "London", "country": "United Kingdom", "addressline1": "Strand, London", "star_rating": "5", "rating_average": "9.1", "number_of_reviews": "4200", "overview": "倫敦經典五星級飯店，百年歷史奢華象徵。"},
+    {"hotel_name": "The Plaza New York", "city": "New York", "country": "United States", "addressline1": "Fifth Avenue at Central Park South", "star_rating": "5", "rating_average": "9.0", "number_of_reviews": "3800", "overview": "紐約經典飯店，中央公園旁的地標建築。"},
+    {"hotel_name": "Burj Al Arab", "city": "Dubai", "country": "United Arab Emirates", "addressline1": "Jumeirah Beach Road", "star_rating": "5", "rating_average": "9.6", "number_of_reviews": "5600", "overview": "杜拜七星級飯店，世界最奢華飯店之一。"},
+]
+
 def load_hotels():
     """載入飯店資料"""
     hotels = []
-    with open(CSV_FILE, 'r', encoding='utf-8', errors='ignore') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            try:
-                if row.get('rating_average') and float(row.get('rating_average', 0)) >= 8.0:
-                    hotels.append(row)
-            except:
-                pass
-    return hotels
+    
+    # 嘗試從 CSV 載入
+    if os.path.exists(CSV_FILE):
+        try:
+            with open(CSV_FILE, 'r', encoding='utf-8', errors='ignore') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    try:
+                        if row.get('rating_average') and float(row.get('rating_average', 0)) >= 8.0:
+                            hotels.append(row)
+                    except:
+                        pass
+            if hotels:
+                print(f"✅ 從 CSV 載入 {len(hotels)} 間飯店")
+                return hotels
+        except Exception as e:
+            print(f"⚠️ CSV 讀取失敗: {e}")
+    
+    # 使用內建後備資料
+    print(f"✅ 使用內建飯店資料 ({len(FALLBACK_HOTELS)} 間)")
+    return FALLBACK_HOTELS
 
 def filter_hotels_by_city(hotels, city):
     return [h for h in hotels if city.lower() in h.get('city', '').lower()]
